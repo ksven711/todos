@@ -21,6 +21,36 @@ GRANT ALL PRIVILEGES ON SEQUENCE TODO_SEQ TO TEST_USER;
 
 ## Curl commands:
 
-GET
+###GET
+
 All - curl http://localhost:8081/todos
+
 By Id - curl http://localhost:8081/todos/198
+
+###POST
+
+curl -H "Content-Type: application/json" -X POST -d '{
+    "userId": 1,
+    "title": "test",
+    "completed": false
+  }' http://localhost:8081/todos
+
+###PUT
+curl -X PUT -H "Content-Type: application/json" -d '{
+    "userId": 1,
+    "title": "test UPDATE",
+    "completed": false
+  }' http://localhost:8081/todos/198
+
+
+For marking complete
+
+curl -X PUT -H "Content-Type: application/json" -d '{
+    "userId": 1,
+    "title": "test UPDATE",
+    "completed": false
+  }' http://localhost:8081/todos/198/complete
+
+
+###DELETE
+curl -X DELETE http://localhost:8081/todos/198

@@ -67,17 +67,6 @@ public class TodoController {
         todoRepository.delete(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/all" , produces = "application/json", consumes = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void addTodos(@RequestBody List<Todo> todos) {
-        List<TodoEntity> todoEntities = new ArrayList<>();
-        for (Todo todo : todos) {
-            TodoEntity todoEntity = convertToEntity(todo);
-            todoEntities.add(todoEntity);
-        }
-        todoRepository.save(todoEntities);
-    }
-
     private Todo convert(TodoEntity todoEntity) {
         Todo tempTodo = new Todo();
         tempTodo.setId(todoEntity.getId());
