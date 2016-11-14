@@ -37,6 +37,7 @@ curl -H "Content-Type: application/json" -X POST -d '{
 
 ###PUT
 curl -X PUT -H "Content-Type: application/json" -d '{
+    "id": 198,
     "userId": 1,
     "title": "test UPDATE",
     "completed": false
@@ -47,6 +48,7 @@ For marking complete
 
 curl -X PUT -H "Content-Type: application/json" -d '{
     "userId": 1,
+    "id": 198
     "title": "test UPDATE",
     "completed": false
   }' http://localhost:8081/todos/198/complete
